@@ -1,0 +1,21 @@
+article_id,title,keywords,url
+318867,Upgrading vCenter Server 7.0 fails during precheck,"vCenter upgrade, precheck failure, host inventory",https://knowledge.broadcom.com/external/article/318867
+344885,Using the vSphere_upgrade_assessment.py script,"upgrade assessment, vSphere script",https://knowledge.broadcom.com/external/article/344885
+318181,Converting an ESXi cluster to be vLCM image managed fails,"ESXi cluster, vLCM, image management",https://knowledge.broadcom.com/external/article/318181
+318765,Enabling vSphere HA might fail or never complete,"vSphere HA, ESXi hosts, failure",https://knowledge.broadcom.com/external/article/318765
+344833,Critical baseline & Non-Critical baseline may become Compliant,"baseline compliance, remediation",https://knowledge.broadcom.com/external/article/344833
+326265,ESXi 7.0 Upgrade fails with NSX-V to NSX-T migration,"NSX migration, ESXi upgrade, platform configuration error",https://knowledge.broadcom.com/external/article/326265
+318188,Upgrading to vCenter Server 7.0 U3c using CLI fails,"vCenter CLI upgrade, installation failure",https://knowledge.broadcom.com/external/article/318188
+344749,vSphere 7.0 Update 3 identified issues fixed in Update 3c,"vSphere update, issue resolution",https://knowledge.broadcom.com/external/article/344749
+317637,Workaround Instructions For CVE-2021-22045 on VMware ESXi Hosts,"CVE-2021-22045, ESXi security, workaround",https://knowledge.broadcom.com/external/article/317637
+87386,SSH Daemon Sandboxing VOB in vSphere 8.0 release,"SSH daemon, sandboxing, vSphere 8.0",https://knowledge.broadcom.com/external/article/87386
+87510,Domain enforcement change warnings on ESXi Host,"domain enforcement, ESXi warnings",https://knowledge.broadcom.com/external/article/87510
+87517,Fix dataSets store file corrupt or missing in VM,"dataSets store, VM corruption",https://knowledge.broadcom.com/external/article/87517
+88235,Name server from DHCP missing in /etc/resolv.conf,"DHCP, name server, resolv.conf",https://knowledge.broadcom.com/external/article/88235
+88304,Host client issues with NVME controller unitNumber above 15,"NVME controller, host client, unitNumber",https://knowledge.broadcom.com/external/article/88304
+88646,VMKAPI v2.4 removal implications for ESXi 8.0 upgrade,"VMKAPI v2.4, ESXi upgrade, VIBs",https://knowledge.broadcom.com/external/article/88646
+88737,Older Linux VMs fail to start with Secure Boot enabled,"Linux VMs, secure boot, hardware version 20",https://knowledge.broadcom.com/external/article/88737
+89489,Collecting network packets using PacketCapture on ESXi 8.0,"PacketCapture, network packets, ESXi 8.0",https://knowledge.broadcom.com/external/article/89489
+89500,Not Mounting Heavily Corrupted VMFS Datastores,"VMFS datastores, corruption, mounting failure",https://knowledge.broadcom.com/external/article/89500
+89327,WSFC with shared disks on VMware vSphere 8.x,"WSFC, shared disks, supported configurations",https://knowledge.broadcom.com/external/article/89327
+89682,Booting ESXi 8.0 may fail with Error 10,"ESXi boot failure, Error 10, out of resources",https://knowledge.broadcom.com/external/article/89682
