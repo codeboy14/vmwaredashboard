@@ -5,9 +5,9 @@ from functools import lru_cache
 
 
 # Replace with the actual URL of your logo in the GitHub repo
-logo_url = "https://github.com/codeboy14/vmwaredashboard/blob/759c5b7274122e51f3245b84ea629ba6fe3ebf72/logoHPE.png"
+logo_url = "https://raw.githubusercontent.com/codeboy14/vmwaredashboard/blob/759c5b7274122e51f3245b84ea629ba6fe3ebf72/logoHPE.png"
 
-# Display the logo on the top-left
+# Display the logo on the center
 st.image(logo_url, width=180)
 
 # Load the CSV file with caching
