@@ -35,8 +35,10 @@ if error_message:
         for _, row in results.iterrows():
             st.markdown(f"**Article ID:** {row['article_id']}")
             st.markdown(f"**Resolution:** {row['title']}")
-            st.markdown(f"View Article")
+            if 'url' in row and pd.notna(row['url']):
+                st.markdown(f"View Article")
             st.markdown("---")
+
     else:
         st.write("No matching KB articles found.")
 
