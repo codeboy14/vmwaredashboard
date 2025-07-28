@@ -23,7 +23,7 @@ def extract_products(keywords_series):
 product_list = extract_products(df['keywords'])
 
 # Streamlit UI
-st.title("VMware KB Article Finder with Fuzzy Matching")
+st.title("HPE Tool: VMware KB Article Finder with Fuzzy Matching")
 st.write("Enter an error message or keyword to find relevant VMware KB articles.")
 
 error_message = st.text_input("Error Message or Keyword")
@@ -76,5 +76,5 @@ if error_message:
 # Footer with footnote
 st.markdown("""
 ---
-<sub>Developed and managed by RTCC AMS. For feedback and changes, email at [tushar.thapa@hpe.com](mailto:tushar.thapa@hS refers to the Real-Time Command Center under AMS (North America), responsible for compute and communication support.</sub>
+<sub>Developed and managed by RTCC AMS. For feedback and changes, please email [tushar.thapa@hpe.com], referring to the Real-Time Command Center under AMS (North America), which is responsible for compute and communication support.</sub>
 """, unsafe_allow_html=True)
