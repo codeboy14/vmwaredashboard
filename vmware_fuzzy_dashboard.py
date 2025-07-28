@@ -6,26 +6,7 @@ from functools import lru_cache
 # Load the CSV file with caching
 @st.cache_data
 def load_data():
-    return pd.read_csv("vmware_kb_articles_1.csv")  # Updated filename.empty:
-        st.write("Matching KB Articles:")
-        for _, row in results.iterrows():
-            st.markdown(f"**Article ID:** {row['article_id']}")
-            st.markdown(f"**Resolution:** {row['title']}")
-            if pd.notna(row['url']) and row['url'].strip():
-                st.markdown(f"View Article")
-            else:
-                st.markdown("_No URL available for this article._")
-            st.markdown("---")
-    else:
-        st.write("No matching KB articles found.")
-
-# Footer with footnote
-st.markdown("""
----
-<sub>Developed and managed by RTCC AMS. For feedback and changes, email at tushar.thapa@hpe.com.  
-<sup>¹</sup> RTCC AMS refers to the Real-Time Command Center under AMS (Application Management Services), responsible for compute and communication support.</sub>
-""", unsafe_allow_html=True)
-    return pd.read_csv("vmware_kb_articles_1.csv")  # Updated filename
+    return pd.read_csv("vmware_kb_articles_1.csv")  # Ensure this file is in the same directory
 
 df = load_data()
 
@@ -64,4 +45,21 @@ if error_message:
     scores = filtered_df['keywords'].fillna("").str.lower().apply(lambda x: fuzzy_score(error_lower, x))
     results = filtered_df[scores > 70]
 
-    if not results
+    if not results.empty:
+        st.write("Matching KB Articles:")
+        for _, row in results.iterrows():
+            st.markdown(f"**Article ID:** {row['article_id']}")
+            st.markdown(f"**Resolution:** {row['title']}")
+            if pd.notna(row['url']) and row['url'].strip():
+                st.markdown(f"View Article")
+            else:
+                st.markdown("_No URL available for this article._")
+            st.markdown("---")
+    else:
+        st.write("No matching KB articles found.")
+
+# Footer with footnote
+st.markdown("""
+---
+<sub>Developed and managed by RTCC AMS. For feedback and changes, email at [tushar.thapa@hpe.com](mailto:tushar.thapa@hS refers to the Real-Time Command Center under AMS (Application Management Services), responsible for compute and communication support.</sub>
+""", unsafe_allow_html=True)
