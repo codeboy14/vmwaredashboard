@@ -45,16 +45,17 @@ if error_message:
     scores = filtered_df['keywords'].fillna("").str.lower().apply(lambda x: fuzzy_score(error_lower, x))
     results = filtered_df[scores > 70]
 
-    if not results.empty:
-        st.write("Matching KB Articles:")
-        for _, row in results.iterrows():
-            st.markdown(f"**Article ID:** {row['article_id']}")
-            st.markdown(f"**Resolution:** {row['title']}")
-            if pd.notna(row['url']) and row['url'].strip():
-                st.markdown(f"View Article")
-            else:
-                st.markdown("_No URL available for this article._")
-            st.markdown("---")
+if not results.empty:
+    st.write("Matching KB Articles:")
+    for _, row in results.iterrows():
+        st.markdown(f"**Article ID:** {row['article_id']}")
+        st.markdown(f"**Resolution:** {row['title']}")
+        if pd.notna(row['url']) and row['url'].strip():
+            # This line is now corrected to display a clickable link
+            st.markdown(f"[View Article]({row['url']})")
+        else:
+            st.markdown("_No URL available for this article._")
+        st.markdown("---")
     else:
         st.write("No matching KB articles found.")
 
