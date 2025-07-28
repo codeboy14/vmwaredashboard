@@ -76,5 +76,5 @@ if error_message:
 # Footer with footnote
 st.markdown("""
 ---
-<sub>Developed and managed by RTCC AMS. For feedback and changes, please email [tushar.thapa@hpe.com], referring to the Real-Time Command Center under AMS (North America), which is responsible for compute and communication support.</sub>
+<sub>Developed and managed by RTCC AMS. For feedback and changes, please email [tushar.thapa@hpe.com], referring to the Real-Time Collaboration Center under AMS (North America), which is responsible for compute and communication support.</sub>
 """, unsafe_allow_html=True)
