@@ -1,9 +1,10 @@
+
 import streamlit as st
 import pandas as pd
 from fuzzywuzzy import fuzz
 
 # Load the CSV file
-df = pd.read_csv("vmware_kb_articles.csv")
+df = pd.read_csv("vmware_kb_articles 1.csv")
 
 # Extract product keywords from the 'keywords' column
 def extract_products(keywords_series):
@@ -35,13 +36,16 @@ if error_message:
         for _, row in results.iterrows():
             st.markdown(f"**Article ID:** {row['article_id']}")
             st.markdown(f"**Resolution:** {row['title']}")
-                    st.markdown("---")
+            if pd.notna(row['url']) and row['url'].strip():
+                st.markdown(f"View Article")
+            else:
+                st.markdown("_No URL available for this article._")
+            st.markdown("---")
     else:
         st.write("No matching KB articles found.")
 
-        
 # Footer with footnote
 st.markdown("""
 ---
-<sub>Developed and managed by RTCC AMS. For feedback and changes, please email [tushar.thapa@hpe.com](mailto:tushar.thapa@hpe.com) to the Real-Time Command Center under AMS (North America), which is responsible for compute and communication support.</sub>
+<sub>Developed and managed by RTCC AMS. For feedback and changes, email at [tushar.thapa@hpe.com](mailto:tushar RTCC AMS refers to the Real-Time Command Center under AMS (North America), responsible for compute and communication support.</sub>
 """, unsafe_allow_html=True)
