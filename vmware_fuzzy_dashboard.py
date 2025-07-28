@@ -3,6 +3,13 @@ import pandas as pd
 from rapidfuzz import fuzz
 from functools import lru_cache
 
+
+# Replace with the actual URL of your logo in the GitHub repo
+logo_url = "https://github.com/codeboy14/vmwaredashboard/blob/main/logoHPE.png"
+
+# Display the logo on the top-left
+st.image(logo_url, width=120)
+
 # Load the CSV file with caching
 @st.cache_data
 def load_data():
