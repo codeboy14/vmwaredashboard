@@ -43,5 +43,5 @@ if error_message:
 # Footer with footnote
 st.markdown("""
 ---
-<sub>Developed and managed by RTCC AMS. For feedback and changes, email at [tushar.thapa@hpe.com](mailto:tushar.thapa@hpe.comrs to the Real-Time Command Center under AMS (Application Management Services), responsible for compute and communication support.</sub>
+<sub>Developed and managed by RTCC AMS. For feedback and changes, please email [tushar.thapa@hpe.com](mailto:tushar.thapa@hpe.com) to the Real-Time Command Center under AMS (North America), which is responsible for compute and communication support.</sub>
 """, unsafe_allow_html=True)
