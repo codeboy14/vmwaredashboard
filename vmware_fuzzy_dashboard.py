@@ -8,7 +8,7 @@ from functools import lru_cache
 logo_url = "https://github.com/codeboy14/vmwaredashboard/blob/main/logoHPE.png"
 
 # Display the logo on the top-left
-st.image(logo_url, width=120)
+st.image(logo_url, width=180)
 
 # Load the CSV file with caching
 @st.cache_data
