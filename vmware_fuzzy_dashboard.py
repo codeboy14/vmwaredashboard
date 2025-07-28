@@ -35,7 +35,14 @@ if error_message:
         for _, row in results.iterrows():
             st.markdown(f"**Article ID:** {row['article_id']}")
             st.markdown(f"**Resolution:** {row['title']}")
+            
+# Check and display URL
+        url = row.get('url', '')
+        if pd.notna(url) and url.strip():
             st.markdown(f"View Article")
+        else:
+            st.markdown("_No URL available for this article._")
+
             st.markdown("---")
     else:
         st.write("No matching KB articles found.")
