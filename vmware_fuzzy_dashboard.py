@@ -6,7 +6,8 @@ from functools import lru_cache
 # Load the CSV file with caching
 @st.cache_data
 def load_data():
-    return pd.read_csv("vmware_kb_articles_1.csv")  # Ensure this file is in the same directory
+    # Ensure this file is in the same directory and has a 'Complexity' column
+    return pd.read_csv("vmware_kb_articles_1.csv")
 
 df = load_data()
 
@@ -45,17 +46,30 @@ if error_message:
     scores = filtered_df['keywords'].fillna("").str.lower().apply(lambda x: fuzzy_score(error_lower, x))
     results = filtered_df[scores > 70]
 
-if not results.empty:
-    st.write("Matching KB Articles:")
-    for _, row in results.iterrows():
-        st.markdown(f"**Article ID:** {row['article_id']}")
-        st.markdown(f"**Resolution:** {row['title']}")
-        if pd.notna(row['url']) and row['url'].strip():
-            # This line is now corrected to display a clickable link
-            st.markdown(f"[View Article]({row['url']})")
-        else:
-            st.markdown("_No URL available for this article._")
-        st.markdown("---")
+    if not results.empty:
+        st.write("Matching KB Articles:")
+        for _, row in results.iterrows():
+            st.markdown(f"**Article ID:** {row['article_id']}")
+            st.markdown(f"**Resolution:** {row['title']}")
+            
+            # Display URL if it exists
+            if pd.notna(row['url']) and row['url'].strip():
+                st.markdown(f"[View Article]({row['url']})")
+            else:
+                st.markdown("_No URL available for this article._")
+
+            # --- NEW: Check the 'Complexity' column and print action ---
+            if 'Complexity' in row and pd.notna(row['Complexity']):
+                complexity_status = str(row['Complexity']).strip().lower()
+                if complexity_status == 'yes':
+                    st.warning("⚠️ **Action:** Engage POD and mentor, complex case.")
+                elif complexity_status == 'no':
+                    st.info("ℹ️ **Action:** Continue troubleshooting and contact mentor for technical updates.")
+            else:
+                st.write("_Complexity status not specified._")
+            # --- END of new section ---
+                
+            st.markdown("---")
     else:
         st.write("No matching KB articles found.")
 
