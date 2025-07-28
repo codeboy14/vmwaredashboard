@@ -30,25 +30,17 @@ if error_message:
 
     results = filtered_df[filtered_df.apply(fuzzy_filter, axis=1)]
 
-if not results.empty:
-    st.write("Matching KB Articles:")
-    for _, row in results.iterrows():
-        st.markdown(f"**Article ID:** {row['article_id']}")
-        st.markdown(f"**Resolution:** {row['title']}")
-        
-        # Check and display URL
-        url = row.get('url', '')
-        if pd.notna(url) and url.strip():
+    if not results.empty:
+        st.write("Matching KB Articles:")
+        for _, row in results.iterrows():
+            st.markdown(f"**Article ID:** {row['article_id']}")
+            st.markdown(f"**Resolution:** {row['title']}")
             st.markdown(f"View Article")
-        else:
-            st.markdown("_No URL available for this article._")
-        
-        st.markdown("---")
-
-
+            st.markdown("---")
     else:
         st.write("No matching KB articles found.")
 
+        
 # Footer with footnote
 st.markdown("""
 ---
