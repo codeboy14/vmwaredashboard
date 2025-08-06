@@ -3,18 +3,16 @@ import pandas as pd
 from rapidfuzz import fuzz
 from functools import lru_cache
 
-
-# Replace with the actual URL of your logo in the GitHub repo
+# Logo URL
 logo_url = "https://raw.githubusercontent.com/codeboy14/vmwaredashboard/blob/759c5b7274122e51f3245b84ea629ba6fe3ebf72/logoHPE.png"
-
-# Display the logo on the center
 st.image(logo_url, width=180)
 
 # Load the CSV file with caching
 @st.cache_data
 def load_data():
-    # Ensure this file is in the same directory and has a 'Complexity' column
-    return pd.read_csv("vmware_kb_articles_1.csv")
+    df = pd.read_csv("vmware_kb_articles_1.csv")
+    df.columns = df.columns.str.strip()  # Fix: remove whitespace from column names
+    return df
 
 df = load_data()
 
@@ -44,11 +42,11 @@ def fuzzy_score(a, b):
 if error_message:
     # Filter by product if selected
     if selected_product != "All":
-        filtered_df = df[df['keywords'].str.contains(selected_product, case=False, na=False)]
+        filtered_df = df[df['product'].str.contains(selected_product, case=False, na=False)]
     else:
         filtered_df = df
 
-    # Apply fuzzy matching using vectorized approach
+    # Apply fuzzy matching
     error_lower = error_message.lower()
     scores = filtered_df['keywords'].fillna("").str.lower().apply(lambda x: fuzzy_score(error_lower, x))
     results = filtered_df[scores > 70]
@@ -58,14 +56,12 @@ if error_message:
         for _, row in results.iterrows():
             st.markdown(f"**Article ID:** {row['article_id']}")
             st.markdown(f"**Resolution:** {row['title']}")
-            
-            # Display URL if it exists
+
             if pd.notna(row['url']) and row['url'].strip():
-                st.markdown(f"[View Article]({row['url']})")
+                st.markdown(f"[View Article]
             else:
                 st.markdown("_No URL available for this article._")
 
-            # --- NEW: Check the 'Complexity' column and print action ---
             if 'Complexity' in row and pd.notna(row['Complexity']):
                 complexity_status = str(row['Complexity']).strip().lower()
                 if complexity_status == 'yes':
@@ -74,15 +70,13 @@ if error_message:
                     st.info("ℹ️ **Action:** Continue troubleshooting and contact mentor for technical updates.")
             else:
                 st.write("_Complexity status not specified._")
-            # --- END of new section ---
-                
+
             st.markdown("---")
     else:
         st.write("No matching KB articles found.")
 
-# Footer with footnote
+# Footer
 st.markdown("""
 ---
 <sub>Developed and managed by RTCC AMS. For feedback and changes, please email [tushar.thapa@hpe.com], referring to the Real-Time Collaboration Center under AMS (North America), which is responsible for compute and communication support.</sub>
 """, unsafe_allow_html=True)
-
