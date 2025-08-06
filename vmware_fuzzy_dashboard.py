@@ -18,16 +18,16 @@ def load_data():
 
 df = load_data()
 
-# Extract product keywords from the 'keywords' column
+# Extract product names from the 'product' column
 @st.cache_data
-def extract_products(keywords_series):
+def extract_products(product_series):
     products = set()
-    for keywords in keywords_series.dropna():
-        for keyword in keywords.split(','):
-            products.add(keyword.strip().split()[0])
+    for product_list in product_series.dropna():
+        for product in product_list.split(','):
+            products.add(product.strip())
     return sorted(products)
 
-product_list = extract_products(df['keywords'])
+product_list = extract_products(df['product'])
 
 # Streamlit UI
 st.title("HPE Tool: VMware KB Article Finder with Fuzzy Matching")
@@ -85,3 +85,4 @@ st.markdown("""
 ---
 <sub>Developed and managed by RTCC AMS. For feedback and changes, please email [tushar.thapa@hpe.com], referring to the Real-Time Collaboration Center under AMS (North America), which is responsible for compute and communication support.</sub>
 """, unsafe_allow_html=True)
+
