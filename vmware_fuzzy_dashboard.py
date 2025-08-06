@@ -58,7 +58,8 @@ if error_message:
             st.markdown(f"**Resolution:** {row['title']}")
 
             if pd.notna(row['url']) and row['url'].strip():
-                st.markdown(f"[View Article]
+                st.markdown(f"View Article")
+
             else:
                 st.markdown("_No URL available for this article._")
 
@@ -80,3 +81,4 @@ st.markdown("""
 ---
 <sub>Developed and managed by RTCC AMS. For feedback and changes, please email [tushar.thapa@hpe.com], referring to the Real-Time Collaboration Center under AMS (North America), which is responsible for compute and communication support.</sub>
 """, unsafe_allow_html=True)
+
