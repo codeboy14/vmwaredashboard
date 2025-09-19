@@ -74,8 +74,10 @@ if error_message:
 # Footer
 st.markdown("""
 ---
-<sub> For feedback and changes, please email [tushar.thapa@hpe.com] Developed and Managed by SSD NA-RTCC..</sub>
+<sub> For feedback and changes, please email [tushar.thapa@hpe.com].
+Developed and Managed by SSD NA-RTCC..</sub>
 """, unsafe_allow_html=True)
+
 
 
 
