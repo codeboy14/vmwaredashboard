@@ -57,11 +57,11 @@ if error_message:
             st.markdown(f"**Article ID:** {row['article_id']}")
             st.markdown(f"**Resolution:** {row['title']}")
 
-            if pd.notna(row['url']) and row['url'].strip():
-                st.markdown(f"View Article")
-
+           if pd.notna(row['url']) and row['url'].strip():
+            st.markdown(f"[View Article]({row['url']})")
             else:
-                st.markdown("_No URL available for this article._")
+            st.markdown("_No URL available for this article._")
+
 
             if 'Complexity' in row and pd.notna(row['Complexity']):
                 complexity_status = str(row['Complexity']).strip().lower()
@@ -81,4 +81,5 @@ st.markdown("""
 ---
 <sub>Developed and managed by RTCC AMS. For feedback and changes, please email [tushar.thapa@hpe.com], referring to the Real-Time Collaboration Center under AMS (North America), which is responsible for compute and communication support.</sub>
 """, unsafe_allow_html=True)
+
 
