@@ -30,7 +30,6 @@ product_list = extract_products(df['product'])
 # Streamlit UI
 st.title("HPE Tool: VMware KB Article Finder with Fuzzy Matching")
 st.write("Enter an error message or keyword to find relevant VMware KB articles.")
-
 error_message = st.text_input("Error Message or Keyword")
 selected_product = st.selectbox("Filter by Product (optional)", ["All"] + product_list)
 
@@ -56,14 +55,10 @@ if error_message:
         for _, row in results.iterrows():
             st.markdown(f"**Article ID:** {row['article_id']}")
             st.markdown(f"**Resolution:** {row['title']}")
-
-           if pd.notna(row['url']) and row['url'].strip():
-            st.markdown(f"[View Article]({row['url']})")
-            
-        else:
-            st.markdown("_No URL available for this article._")
-
-
+            if pd.notna(row['url']) and row['url'].strip():
+                st.markdown(f"[View Article]({row['url']})")
+            else:
+                st.markdown("_No URL available for this article._")
             if 'Complexity' in row and pd.notna(row['Complexity']):
                 complexity_status = str(row['Complexity']).strip().lower()
                 if complexity_status == 'yes':
@@ -72,7 +67,6 @@ if error_message:
                     st.info("ℹ️ **Action:** Continue troubleshooting and contact mentor for technical updates.")
             else:
                 st.write("_Complexity status not specified._")
-
             st.markdown("---")
     else:
         st.write("No matching KB articles found.")
@@ -82,6 +76,3 @@ st.markdown("""
 ---
 <sub>Developed and managed by RTCC AMS. For feedback and changes, please email [tushar.thapa@hpe.com], referring to the Real-Time Collaboration Center under AMS (North America), which is responsible for compute and communication support.</sub>
 """, unsafe_allow_html=True)
-
-
-
