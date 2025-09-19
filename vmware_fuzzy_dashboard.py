@@ -4,7 +4,7 @@ from rapidfuzz import fuzz
 from functools import lru_cache
 
 # Logo URL
-logo_url = "https://raw.githubusercontent.com/codeboy14/vmwaredashboard/blob/759c5b7274122e51f3245b84ea629ba6fe3ebf72/logoHPE.png"
+logo_url = "https://raw.githubusercontent.com/codeboy14/vmwaredashboard/759c5b7274122e51f3245b84ea629ba6fe3ebf72/logoHPE.png"
 st.image(logo_url, width=180)
 
 # Load the CSV file with caching
@@ -76,3 +76,4 @@ st.markdown("""
 ---
 <sub>Developed and managed by RTCC AMS. For feedback and changes, please email [tushar.thapa@hpe.com], referring to the Real-Time Collaboration Center under AMS (North America), which is responsible for compute and communication support.</sub>
 """, unsafe_allow_html=True)
+
