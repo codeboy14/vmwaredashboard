@@ -74,8 +74,9 @@ if error_message:
 # Footer
 st.markdown("""
 ---
-<sub>Developed and managed by SSD NA-RTCC. For feedback and changes, please email [tushar.thapa@hpe.com], referring to the Real-Time Collaboration Center under AMS (North America), which is responsible for compute and communication support of this tool.</sub>
+<sub> For feedback and changes, please email [tushar.thapa@hpe.com] Developed and Managed by SSD NA-RTCC..</sub>
 """, unsafe_allow_html=True)
+
 
 
 
